@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Question For My Love</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 700px;
+            width: 100%;
+            padding: 50px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            color: #764ba2;
+            font-size: 32px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            color: #999;
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .heart-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .questions-container {
+            margin-bottom: 30px;
+        }
+
+        .question-block {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .question-block:hover {
+            background: #f0f0f0;
+            transform: translateX(5px);
+        }
+
+        .question-number {
+            color: #667eea;
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .question-text {
+            color: #333;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .answer-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 14px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            resize: vertical;
+            min-height: 80px;
+            transition: border-color 0.3s ease;
+        }
+
+        .answer-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .button-container {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .reset-btn {
+            background: #f0f0f0;
+            color: #333;
+            border: 2px solid #e0e0e0;
+            padding: 15px 40px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .reset-btn:hover {
+            background: #e0e0e0;
+            border-color: #999;
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            background: #d4edda;
+            color: #155724;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .button-container {
+                flex-direction: column;
+            }
+
+            .submit-btn, .reset-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="heart-icon">💕</div>
+            <h1>The Question For My Love</h1>
+            <p>From Dian To Madison</p>
+        </div>
+
+        <form id="loveForm">
+            <div class="questions-container">
+                <div class="question-block">
+                    <div class="question-number">Question 1</div>
+                    <div class="question-text">What do you love about me?</div>
+                    <textarea class="answer-input" name="answer1" placeholder="Type your answer here..." required></textarea>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">Question 2</div>
+                    <div class="question-text">Would you still love me if all people hate me?</div>
+                    <textarea class="answer-input" name="answer2" placeholder="Type your answer here..." required></textarea>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">Question 3</div>
+                    <div class="question-text">Would you still stay with me even if I have insomnia?</div>
+                    <textarea class="answer-input" name="answer3" placeholder="Type your answer here..." required></textarea>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">Question 4</div>
+                    <div class="question-text">Would you still love me even if your family doesn't want me?</div>
+                    <textarea class="answer-input" name="answer4" placeholder="Type your answer here..." required></textarea>
+                </div>
+            </div>
+
+            <div class="button-container">
+                <button type="submit" class="submit-btn">💌 Submit Your Answers</button>
+                <button type="reset" class="reset-btn">Clear</button>
+            </div>
+
+            <div class="success-message" id="successMessage">
+                ✅ Your answers have been saved! Thank you for answering from your heart. 💕
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById('loveForm');
+        const successMessage = document.getElementById('successMessage');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(form);
+            const answers = {
+                answer1: formData.get('answer1'),
+                answer2: formData.get('answer2'),
+                answer3: formData.get('answer3'),
+                answer4: formData.get('answer4')
+            };
+
+            // Save to localStorage
+            localStorage.setItem('loveQuizAnswers', JSON.stringify(answers));
+
+            // Show success message
+            successMessage.style.display = 'block';
+            
+            // Hide after 3 seconds
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 3000);
+
+            console.log('Answers saved:', answers);
+        });
+
+        // Load saved answers on page load
+        window.addEventListener('load', function() {
+            const savedAnswers = localStorage.getItem('loveQuizAnswers');
+            if (savedAnswers) {
+                const answers = JSON.parse(savedAnswers);
+                document.querySelector('input[name="answer1"]').value = answers.answer1 || '';
+                document.querySelector('input[name="answer2"]').value = answers.answer2 || '';
+                document.querySelector('input[name="answer3"]').value = answers.answer3 || '';
+                document.querySelector('input[name="answer4"]').value = answers.answer4 || '';
+            }
+        });
+    </script>
+</body>
+</html>
